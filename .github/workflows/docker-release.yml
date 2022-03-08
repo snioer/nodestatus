@@ -2,12 +2,10 @@ name: 'Docker Release'
 
 on:
   push:
-    tags:
-      - 'v*'
-
+    branches:
+      - ci
 jobs:
   release:
-    if: github.event.base_ref == 'refs/heads/master'
     runs-on: ubuntu-latest
     steps:
       - name: Login to DockerHub
@@ -48,5 +46,4 @@ jobs:
             --platform=linux/amd64 \
             --output "type=image,push=true" \
             --file ./Dockerfile . \
-            --tag $(echo "${DOCKER_USERNAME}" | tr '[:upper:]' '[:lower:]')/nodestatus:latest \
-            --tag $(echo "${DOCKER_USERNAME}" | tr '[:upper:]' '[:lower:]')/nodestatus:${VERSION}
+            --tag $(echo "${DOCKER_USERNAME}" | tr '[:upper:]' '[:lower:]')/nodestatus:staging
