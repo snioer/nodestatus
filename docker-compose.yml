@@ -14,8 +14,8 @@ services:
       USE_IPC: "true"
       USE_WEB: "true"
 
-      WEB_USERNAME: "snioer"
-      WEB_PASSWORD: ""
+      WEB_USERNAME: "admin"
+      WEB_PASSWORD: "admin"
       WEB_SECRET: "master-docker"
 
       PUSH_TIMEOUT: 30
