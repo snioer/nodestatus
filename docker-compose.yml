@@ -6,17 +6,17 @@ services:
 
     environment:
       PORT: 35601
-      VERBOSE: "false"
+      VERBOSE: "true"
       THEME: "hotaru-theme"
       PING_INTERVAL: 30
 
-      USE_PUSH: "true"
+      USE_PUSH: "false"
       USE_IPC: "true"
       USE_WEB: "true"
 
-      WEB_USERNAME: "admin"
+      WEB_USERNAME: "snioer"
       WEB_PASSWORD: ""
-      WEB_SECRET: ""
+      WEB_SECRET: "master-docker"
 
       PUSH_TIMEOUT: 30
       PUSH_DELAY: 15
@@ -27,9 +27,11 @@ services:
       TGBOT_WEBHOOK: ""
 
     volumes:
-      - /usr/local/NodeStatus/server:/usr/local/NodeStatus/server
+      - nodestatus-sto:/usr/local/NodeStatus/server
       - /tmp:/tmp:rw
 
     ports:
       - "35601:35601"
+volumes:
+  nodestatus-sto:
 
